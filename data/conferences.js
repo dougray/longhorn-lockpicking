@@ -22,6 +22,13 @@ window.LLC_CONFERENCES = [
     "note":  "Run by the team behind HOU.SEC.CON (2010-2025). George R. Brown Convention Center."
   },
   {
+    "start": "2026-09-17",
+    "title": "BSides Houston",
+    "where": "Houston, TX",
+    "url":   "https://houstonbsides.org/",
+    "note":  "Back after a five-year hiatus. Talks, villages and a CTF, 9am-5pm at the Houston Food Bank Conference Center \u2014 the day after CYBR.SEC.CON."
+  },
+  {
     "start": "2026-10-20",
     "end":   "2026-10-21",
     "title": "Lone Star Cyber Summit",
@@ -55,11 +62,6 @@ window.LLC_CONFERENCES = [
     "where": "San Antonio, TX",
     "url":   "https://www.bsidessatx.com/",
     "note":  "The 2026 edition ran in June."
-  },
-  {
-    "when":  "Date to be announced",
-    "title": "BSides Houston",
-    "where": "Houston, TX"
   },
   {
     "when":  "Date to be announced",
