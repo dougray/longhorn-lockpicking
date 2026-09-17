@@ -1,6 +1,6 @@
 // Generated from the Meetup iCal feed. Do not edit by hand --
 // scripts/update_meetings.py overwrites this file.
-// Last updated: 2026-09-16T14:11:57Z
+// Last updated: 2026-09-17T14:17:58Z
 window.LLC_MEETINGS = [
   {
     "start": "2026-09-19T19:00:00",
@@ -15,37 +15,37 @@ window.LLC_MEETINGS = [
   {
     "start": "2026-10-17T19:00:00",
     "title": "L.I Austin / Longhorn Lockpicking Club",
-    "url": "https://www.meetup.com/lockpick/events/rgxvhtyjcnbwb/"
+    "url": "https://www.meetup.com/lockpick/events/316590575/"
   },
   {
     "start": "2026-10-31T19:00:00",
     "title": "L.I Austin / Longhorn Lockpicking Club",
-    "url": "https://www.meetup.com/lockpick/events/rgxvhtyjcnbpc/"
+    "url": "https://www.meetup.com/lockpick/events/316590576/"
   },
   {
     "start": "2026-11-14T19:00:00",
     "title": "L.I Austin / Longhorn Lockpicking Club",
-    "url": "https://www.meetup.com/lockpick/events/rgxvhtyjcpbsb/"
+    "url": "https://www.meetup.com/lockpick/events/316590577/"
   },
   {
     "start": "2026-11-28T19:00:00",
     "title": "L.I Austin / Longhorn Lockpicking Club",
-    "url": "https://www.meetup.com/lockpick/events/rgxvhtyjcpblc/"
+    "url": "https://www.meetup.com/lockpick/events/316590578/"
   },
   {
     "start": "2026-12-12T19:00:00",
     "title": "L.I Austin / Longhorn Lockpicking Club",
-    "url": "https://www.meetup.com/lockpick/events/rgxvhtyjcqbqb/"
+    "url": "https://www.meetup.com/lockpick/events/316590579/"
   },
   {
     "start": "2026-12-26T19:00:00",
     "title": "L.I Austin / Longhorn Lockpicking Club",
-    "url": "https://www.meetup.com/lockpick/events/rgxvhtyjcqbjc/"
+    "url": "https://www.meetup.com/lockpick/events/316590580/"
   },
   {
     "start": "2027-01-09T19:00:00",
     "title": "L.I Austin / Longhorn Lockpicking Club",
-    "url": "https://www.meetup.com/lockpick/events/rgxvhtykccbmb/"
+    "url": "https://www.meetup.com/lockpick/events/316590581/"
   },
   {
     "start": "2027-01-23T19:00:00",
