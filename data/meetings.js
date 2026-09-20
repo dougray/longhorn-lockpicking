@@ -1,12 +1,7 @@
 // Generated from the Meetup iCal feed. Do not edit by hand --
 // scripts/update_meetings.py overwrites this file.
-// Last updated: 2026-09-19T13:10:01Z
+// Last updated: 2026-09-20T13:34:43Z
 window.LLC_MEETINGS = [
-  {
-    "start": "2026-09-19T19:00:00",
-    "title": "L.I Austin / Longhorn Lockpicking Club",
-    "url": "https://www.meetup.com/lockpick/events/315654874/"
-  },
   {
     "start": "2026-10-03T19:00:00",
     "title": "L.I Austin / Longhorn Lockpicking Club",
@@ -51,5 +46,10 @@ window.LLC_MEETINGS = [
     "start": "2027-01-23T19:00:00",
     "title": "L.I Austin / Longhorn Lockpicking Club",
     "url": "https://www.meetup.com/lockpick/events/rgxvhtykccbfc/"
+  },
+  {
+    "start": "2027-02-06T19:00:00",
+    "title": "L.I Austin / Longhorn Lockpicking Club",
+    "url": "https://www.meetup.com/lockpick/events/rgxvhtykcdbjb/"
   }
 ];
