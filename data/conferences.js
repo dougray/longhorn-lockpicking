@@ -8,6 +8,7 @@
 //   where  "Austin, TX"      optional
 //   url    optional -- makes the title a link
 //   note   optional, one short line underneath
+//   link   optional, { "text": "...", "url": "..." } -- an extra link under the note
 //
 // Entries with a `start` sort chronologically and drop off the page once past.
 // Entries with only `when` collect at the bottom under "Dates not yet announced".
@@ -41,7 +42,8 @@ window.LLC_CONFERENCES = [
     "title": "LASCON",
     "where": "Austin, TX",
     "url":   "https://lascon.org/",
-    "note":  "OWASP's Lonestar Application Security Conference. Training runs Oct 27-28."
+    "note":  "OWASP's Lonestar Application Security Conference. Training runs Oct 27-28.",
+    "link":  { "text": "Lock Ladder contest: live scoreboard", "url": "https://dougray.github.io/lascon-lockpick-scoreboard/?view=live" }
   },
   {
     "when":  "November 2026",
