@@ -282,6 +282,9 @@
   .cal-body .t a:hover { color: var(--orange); }
   .cal-body .meta { font-size: .86rem; color: var(--muted); margin-top: .15rem; }
   .cal-body .note { font-size: .84rem; color: var(--muted); margin-top: .3rem; font-style: italic; }
+  .cal-body .extra { font-size: .86rem; font-weight: 600; margin-top: .35rem; }
+  .cal-body .extra a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--orange); }
+  .cal-body .extra a:hover { color: var(--orange); }
   .cal-empty { color: var(--muted); font-size: .92rem; padding: 1rem 0; }
   .cal-foot { margin-top: 1.1rem; font-size: .85rem; color: var(--muted); }
   .cal-sub { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
@@ -530,13 +533,20 @@
     return t;
   }
 
-  function row(dateNode, title, url, meta, note) {
+  function row(dateNode, title, url, meta, note, link) {
     var li = document.createElement('li');
     li.appendChild(dateNode);
     var body = el('div', 'cal-body');
     body.appendChild(titleNode(title, url));
     if (meta) body.appendChild(el('div', 'meta', meta));
     if (note) body.appendChild(el('div', 'note', note));
+    if (link && link.url && link.text) {
+      var a = el('a', 'extra', link.text);
+      a.href = link.url;
+      var p = el('div', 'extra');
+      p.appendChild(a);
+      body.appendChild(p);
+    }
     li.appendChild(body);
     return li;
   }
@@ -599,7 +609,7 @@
   var conRows = dated.map(function (x) {
     var meta = spanLabel(x.start, x.end);
     if (x.c.where) meta += ' \u00b7 ' + x.c.where;
-    return row(dateCell(x.start), x.c.title, x.c.url, meta, x.c.note);
+    return row(dateCell(x.start), x.c.title, x.c.url, meta, x.c.note, x.c.link);
   });
 
   if (undated.length) {
@@ -612,7 +622,7 @@
     undated.forEach(function (c) {
       var meta = c.when || 'Date to be announced';
       if (c.where) meta += ' \u00b7 ' + c.where;
-      conRows.push(row(tbaCell('TBA'), c.title, c.url, meta, c.note));
+      conRows.push(row(tbaCell('TBA'), c.title, c.url, meta, c.note, c.link));
     });
   }
 
