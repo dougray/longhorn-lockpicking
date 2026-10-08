@@ -50,6 +50,15 @@
     --ink-2:      #353F4A;
     --orange:     #C96A2B;
     --orange-lt:  #E08A4A;
+    /* The logo orange only passes as large type or decoration. These carry
+       the AA roles: fills behind white text, small orange text, focus rings. */
+    --orange-dk:  #A85419;   /* white on it 5.3:1; on paper 4.85:1 */
+    --orange-dkr: #8F4614;   /* hover/press for --orange-dk fills, 6.9:1 */
+    --orange-pale:#F4B07C;   /* small orange text on the hero gradient, >=5.2:1 */
+    --hero-top:   #3A4551;
+    --hero-glow:  rgba(191,87,0,.34); /* UT burnt orange, kept as the original glow */
+    --on-ink:     #cfd1d6;   /* body text on the slate bands */
+    --on-ink-muted:#b4b7bc;  /* labels / fine print on slate: 5.3:1 on --ink-2 */
     --paper:      #f7f4ef;
     --paper-2:    #ffffff;
     --body:       #2f3033;
@@ -72,8 +81,10 @@
   }
 
   h1, h2, h3 { margin: 0; line-height: 1.1; font-family: var(--display); font-weight: 600; }
-  a { color: #A85419; }
-  a:focus-visible, .btn:focus-visible { outline: 3px solid var(--orange-lt); outline-offset: 3px; }
+  a { color: var(--orange-dk); }
+  a:focus-visible, .btn:focus-visible { outline: 3px solid var(--orange-dk); outline-offset: 3px; }
+  /* On the dark bands the darker ring disappears; switch to the light orange. */
+  .hero a:focus-visible, footer a:focus-visible { outline-color: var(--orange-lt); }
 
   .wrap { width: 100%; max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
 
@@ -84,8 +95,8 @@
   .hero {
     background: var(--ink);
     background-image:
-      radial-gradient(circle at 82% 18%, rgba(191,87,0,.34), transparent 46%),
-      linear-gradient(180deg, #3A4551 0%, var(--ink) 100%);
+      radial-gradient(circle at 82% 18%, var(--hero-glow), transparent 46%),
+      linear-gradient(180deg, var(--hero-top) 0%, var(--ink) 100%);
     color: #fff;
     padding: 4.5rem 0 4rem;
     border-bottom: 5px solid var(--orange);
@@ -105,7 +116,7 @@
     letter-spacing: .26em;
     text-transform: uppercase;
     font-size: .8rem;
-    color: var(--orange-lt);
+    color: var(--orange-pale);
     margin: 0 0 1rem;
   }
   .hero h1 {
@@ -117,7 +128,7 @@
   }
   .hero .tagline {
     font-size: clamp(1.05rem, 2.4vw, 1.28rem);
-    color: #cfd1d6;
+    color: var(--on-ink);
     max-width: 44ch;
     margin: 0 0 2rem;
   }
@@ -134,7 +145,7 @@
     letter-spacing: .02em;
     color: #fff;
   }
-  .when-strip span { color: #a9acb2; font-family: var(--sans); font-size: .95rem; }
+  .when-strip span { color: var(--on-ink-muted); font-family: var(--sans); font-size: .95rem; }
 
   .btns { display: flex; flex-wrap: wrap; gap: .8rem; }
   .btn {
@@ -150,8 +161,8 @@
     text-transform: uppercase;
     transition: background-color .15s ease, color .15s ease;
   }
-  .btn-solid { background: var(--orange); color: #fff; border-color: var(--orange); }
-  .btn-solid:hover { background: #d96a12; }
+  .btn-solid { background: var(--orange-dk); color: #fff; border-color: var(--orange-dk); }
+  .btn-solid:hover { background: var(--orange-dkr); border-color: var(--orange-dkr); }
   .btn-ghost { color: #fff; border-color: rgba(255,255,255,.45); }
   .btn-ghost:hover { background: rgba(255,255,255,.1); }
 
@@ -177,7 +188,7 @@
     font-size: .76rem;
     letter-spacing: .16em;
     text-transform: uppercase;
-    color: #9a9da3;
+    color: var(--on-ink-muted);
     margin-top: .5rem;
   }
 
@@ -253,10 +264,10 @@
   }
   .map-frame iframe { display: block; width: 100%; height: clamp(18rem, 45vw, 25rem); border: 0; }
   .map-note { font-size: .85rem; color: var(--muted); margin-top: .7rem; }
-  address { font-style: normal; }
+  address { font-style: normal; margin-top: 1.75rem; }
 
   /* ---------- calendar ---------- */
-  .cal-grid { display: grid; gap: 2.25rem; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); }
+  .cal-grid { display: grid; gap: 2.25rem; grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr)); }
   .cal-col h3 {
     font-size: 1rem; text-transform: uppercase; letter-spacing: .12em;
     color: var(--muted); padding-bottom: .7rem; margin-bottom: .3rem;
@@ -271,7 +282,7 @@
   }
   .cal-date .m {
     display: block; font-family: var(--display); font-size: .72rem;
-    letter-spacing: .12em; text-transform: uppercase; color: var(--orange);
+    letter-spacing: .12em; text-transform: uppercase; color: var(--orange-dk);
   }
   .cal-date .d { display: block; font-family: var(--display); font-size: 1.55rem; color: var(--ink); line-height: 1.1; }
   .cal-date .y { display: block; font-size: .66rem; color: var(--muted); }
@@ -279,14 +290,15 @@
   .cal-body { min-width: 0; }
   .cal-body .t { font-weight: 600; color: var(--ink); }
   .cal-body .t a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--orange); }
-  .cal-body .t a:hover { color: var(--orange); }
+  .cal-body .t a:hover { color: var(--orange-dk); }
   .cal-body .meta { font-size: .86rem; color: var(--muted); margin-top: .15rem; }
   .cal-body .note { font-size: .84rem; color: var(--muted); margin-top: .3rem; font-style: italic; }
   .cal-body .extra { font-size: .86rem; font-weight: 600; margin-top: .35rem; }
   .cal-body .extra a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--orange); }
-  .cal-body .extra a:hover { color: var(--orange); }
+  .cal-body .extra a:hover { color: var(--orange-dk); }
   .cal-empty { color: var(--muted); font-size: .92rem; padding: 1rem 0; }
   .cal-foot { margin-top: 1.1rem; font-size: .85rem; color: var(--muted); }
+  .cal-list li.cal-subhead { display: block; border-bottom: 0; padding: 0; }
   .cal-sub { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
              margin: 1.4rem 0 .2rem; padding-top: .9rem; border-top: 1px dashed var(--rule); }
 
@@ -308,10 +320,10 @@
   .social-btn .sub { display: block; font-weight: 400; font-size: .78rem; color: var(--muted); }
 
   /* ---------- footer ---------- */
-  footer { background: var(--ink); color: #a9acb2; padding: 2.6rem 0; font-size: .9rem; }
+  footer { background: var(--ink); color: var(--on-ink-muted); padding: 2.6rem 0; font-size: .9rem; }
   footer a { color: var(--orange-lt); }
   footer p { margin: 0 0 .5rem; max-width: none; }
-  footer .fine { color: #7c8087; font-size: .82rem; margin-top: 1rem; }
+  footer .fine { color: var(--on-ink-muted); font-size: .82rem; margin-top: 1rem; }
   .footer-logo {
     display: block;
     width: 92px; height: auto;
@@ -323,7 +335,7 @@
   footer .credit {
     margin-top: 1.5rem; padding-top: 1.1rem;
     border-top: 1px solid rgba(255,255,255,.12);
-    color: #7c8087; font-size: .8rem;
+    color: var(--on-ink-muted); font-size: .8rem;
   }
   footer .credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
   footer .credit a:hover { color: var(--orange-lt); }
@@ -403,7 +415,7 @@
         </div>
       </div>
 
-      <p style="margin-top:1.75rem"><address><strong>3220 Manor Rd</strong><br>Austin, TX 78722</address></p>
+      <address><strong>3220 Manor Rd</strong><br>Austin, TX 78722</address>
 
       <div class="map-frame">
         <iframe
@@ -613,10 +625,7 @@
   });
 
   if (undated.length) {
-    var head = document.createElement('li');
-    head.style.display = 'block';
-    head.style.borderBottom = '0';
-    head.style.padding = '0';
+    var head = el('li', 'cal-subhead');
     head.appendChild(el('div', 'cal-sub', 'Dates not yet announced'));
     conRows.push(head);
     undated.forEach(function (c) {
