@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lock Ladder Scoreboard · Longhorn Lockpicking Club</title>
+<meta name="description" content="Live scores for the Lock Ladder lockpicking contest at LASCON 2026, run by the Longhorn Lockpicking Club.">
+<meta name="theme-color" content="#15130f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Lock Ladder">
+<link rel="icon" href="../assets/apple-touch-icon.png" sizes="180x180">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<style>
+  html, body { margin: 0; height: 100%; background: #15130f; }
+  iframe { display: block; border: 0; width: 100%; height: 100vh; height: 100dvh; }
+  noscript a { color: #e0a84a; font: 18px system-ui, sans-serif; display: block; padding: 24px 16px; }
+</style>
+</head>
+<body>
+<!-- The scoreboard app lives in its own repo (dougray/lascon-lockpick-scoreboard).
+     This page gives it a short club URL: big projector-style board on wide
+     screens (an iPad on its side at the table), phone layout everywhere else.
+     Add ?board or ?list to force one. -->
+<iframe id="sb" title="Lock Ladder live scoreboard" allow="screen-wake-lock"></iframe>
+<noscript><a href="https://dougray.github.io/lascon-lockpick-scoreboard/?view=live">Open the live scoreboard</a></noscript>
+<script>
+(function () {
+  var BASE = 'https://dougray.github.io/lascon-lockpick-scoreboard/?view=';
+  var q = location.search;
+  var frame = document.getElementById('sb');
+  function pick() {
+    if (/[?&]board\b/.test(q)) return 'board';
+    if (/[?&]list\b/.test(q)) return 'live';
+    return window.innerWidth >= 1000 && window.innerWidth > window.innerHeight ? 'board' : 'live';
+  }
+  var current = '';
+  function load() {
+    var v = pick();
+    if (v === current) return;
+    current = v;
+    frame.src = BASE + v;
+  }
+  load();
+  var t;
+  window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(load, 300); });
+})();
+</script>
+</body>
+</html>

@@ -43,7 +43,7 @@ window.LLC_CONFERENCES = [
     "where": "Austin, TX",
     "url":   "https://lascon.org/",
     "note":  "OWASP's Lonestar Application Security Conference. Training runs Oct 27-28.",
-    "link":  { "text": "Lock Ladder contest: live scoreboard", "url": "https://dougray.github.io/lascon-lockpick-scoreboard/?view=live" }
+    "link":  { "text": "Lock Ladder contest: live scoreboard", "url": "scoreboard/" }
   },
   {
     "when":  "November 2026",
